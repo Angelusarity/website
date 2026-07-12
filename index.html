@@ -1,27 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Angelusarity</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angelusarity — Descubrimiento Ontológico Conversacional</title>
+<meta name="description" content="Angelusarity: un mecanismo conversacional para descubrir la estructura ontológica que una aplicación necesita, sin exigir conocimientos de modelado de datos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body{
+  :root{
+    --ink:#12161f;
+    --ink-2:#1b202c;
+    --gold:#a9793a;
+    --gold-soft:#c9a36a;
+    --parchment:#f2ead9;
+    --parchment-dim:#cabf9f;
+    --line: rgba(201,163,106,0.28);
+    --serif: 'Cormorant Garamond', 'EB Garamond', serif;
+    --serif-body: 'EB Garamond', serif;
+    --sans: 'Jost', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
     margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#ffffff;
-    font-family:Arial, Helvetica, sans-serif;
-}
-h1{
-    font-size:72px;
-    font-weight:300;
-    color:#111;
-    letter-spacing:4px;
-}
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(169,121,58,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(169,121,58,0.06), transparent 55%),
+      var(--ink);
+    color: var(--parchment);
+    font-family: var(--serif-body);
+    line-height: 1.6;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  nav.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 32px; max-width:1040px; margin:0 auto;
+  }
+  .brand{
+    font-family:var(--sans); letter-spacing:0.22em; font-size:13px;
+    text-transform:uppercase; color:var(--parchment-dim);
+  }
+  .brand b{color:var(--gold-soft); font-weight:500;}
+  nav.top a.cta{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold-soft);
+    padding:10px 18px; border-radius:2px; text-decoration:none;
+  }
+
+  /* HERO */
+  header.hero{ padding:80px 0 60px; }
+  .eyebrow{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:22px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold-soft);display:inline-block;}
+  h1{
+    font-family:var(--serif); font-weight:500; font-style:italic;
+    font-size:clamp(40px,7vw,74px); line-height:1.03; margin:0 0 26px; color:var(--parchment);
+    letter-spacing:-0.01em;
+  }
+  h1 em{color:var(--gold-soft); font-style:normal;}
+  .lede{
+    font-size:clamp(17px,2vw,20px); color:var(--parchment-dim); max-width:620px;
+    margin:0 0 40px; font-weight:400;
+  }
+  .hero-actions{display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+  .btn-primary{
+    font-family:var(--sans); font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+    background:var(--gold-soft); color:var(--ink); text-decoration:none;
+    padding:16px 30px; border-radius:2px; display:inline-block;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{ background:#dab77e; transform: translateY(-1px); }
+  .btn-secondary{
+    font-family:var(--sans); font-size:13px; letter-spacing:0.08em;
+    color:var(--parchment-dim); text-decoration:none; border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .btn-secondary:hover{color:var(--gold-soft); border-color:var(--gold-soft);}
+
+  /* THESIS QUOTE */
+  section.thesis{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:56px 0; margin:40px 0;
+  }
+  .thesis blockquote{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(22px,3.2vw,32px); line-height:1.35; color:var(--parchment);
+    margin:0; max-width:780px;
+  }
+  .thesis blockquote::before{content:"“"; color:var(--gold-soft);}
+  .thesis blockquote::after{content:"”"; color:var(--gold-soft);}
+
+  /* THREE UNIVERSES — signature element */
+  section.universes{ padding:70px 0 40px; }
+  .section-label{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:14px;
+  }
+  .section-title{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:clamp(26px,3.4vw,36px); color:var(--parchment); margin:0 0 48px; max-width:600px;
+  }
+  .u-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .u-card{
+    background:var(--ink); padding:38px 30px; position:relative;
+  }
+  .u-num{
+    font-family:var(--serif); font-style:italic; color:var(--gold-soft);
+    font-size:15px; margin-bottom:18px; display:block;
+  }
+  .u-card h3{
+    font-family:var(--serif); font-weight:500; font-size:24px; margin:0 0 10px; color:var(--parchment);
+  }
+  .u-card p.q{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.05em; color:var(--gold-soft);
+    margin:0 0 16px; text-transform:uppercase;
+  }
+  .u-card p.d{ font-size:15.5px; color:var(--parchment-dim); margin:0; }
+
+  /* PILLARS */
+  section.pillars{ padding:70px 0; }
+  .p-list{ display:flex; flex-direction:column; }
+  .p-row{
+    display:grid; grid-template-columns:80px 1fr; gap:28px;
+    padding:34px 0; border-top:1px solid var(--line);
+  }
+  .p-row:last-child{border-bottom:1px solid var(--line);}
+  .p-idx{ font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:34px; }
+  .p-row h3{ font-family:var(--serif); font-weight:500; font-size:21px; margin:0 0 8px; color:var(--parchment); }
+  .p-row p{ font-size:15.5px; color:var(--parchment-dim); margin:0; max-width:600px; }
+
+  /* STATUS BANNER */
+  section.status{
+    padding:44px 0; margin:20px 0 70px;
+  }
+  .status-box{
+    border:1px solid var(--line); padding:34px 36px; border-left:3px solid var(--gold-soft);
+    background: rgba(169,121,58,0.05);
+  }
+  .status-box .k{
+    font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:10px; display:block;
+  }
+  .status-box p{ margin:0; color:var(--parchment-dim); font-size:15.5px; }
+  .status-box strong{ color:var(--parchment); font-weight:600; }
+
+  /* FOOTER / CTA */
+  footer{
+    border-top:1px solid var(--line); padding:56px 0 40px;
+  }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  footer .f-title{
+    font-family:var(--serif); font-style:italic; font-size:26px; color:var(--parchment); margin:0 0 6px;
+  }
+  footer .f-sub{ color:var(--parchment-dim); font-size:14.5px; margin:0; }
+  .f-meta{
+    font-family:var(--sans); font-size:12px; color:var(--parchment-dim); text-align:right;
+    letter-spacing:0.03em; opacity:0.7;
+  }
+  .f-meta a{ text-decoration:none; color:var(--gold-soft); }
+
+  @media (max-width:760px){
+    .u-grid{ grid-template-columns:1fr; }
+    .p-row{ grid-template-columns:50px 1fr; }
+    .foot-grid{ flex-direction:column; align-items:flex-start; }
+    .f-meta{ text-align:left; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn-primary{transition:none;}
+  }
 </style>
 </head>
 <body>
-<h1>Angelusarity</h1>
+
+<nav class="top">
+  <div class="brand">ANGELUSA<b>RI</b>TY</div>
+  <a class="cta" href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Leer el Whitepaper</a>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Whitepaper Técnico · Versión 1.0</div>
+    <h1>La realidad no se<br><em>programa</em>. Se descubre.</h1>
+    <p class="lede">Angelusarity es un mecanismo conversacional que descubre, junto con quien construye una aplicación, la estructura que esa realidad necesita — sin exigirle saber modelar datos, y sin dejar que contradiga su propio propósito.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Descargar el Whitepaper (PDF)</a>
+      <a class="btn-secondary" href="#universos">Ver la estructura ↓</a>
+    </div>
+  </header>
+
+  <section class="thesis">
+    <blockquote>Angelusarity no genera aplicaciones a partir de una descripción. Gobierna la coherencia de una realidad mientras esa realidad se descubre — y no permite que el creador construya algo que contradiga lo que él mismo dijo que quería.</blockquote>
+  </section>
+
+  <section class="universes" id="universos">
+    <div class="section-label">Ontología Fundamental</div>
+    <h2 class="section-title">Toda realidad se organiza en tres universos, cada uno respondiendo una pregunta distinta.</h2>
+    <div class="u-grid">
+      <div class="u-card">
+        <span class="u-num">I</span>
+        <p class="q">¿Qué existe?</p>
+        <h3>Existencial</h3>
+        <p class="d">Su unidad es la Singularidad — una existencia única e identificable: una Persona, una Empresa, un Producto.</p>
+      </div>
+      <div class="u-card">
+        <span class="u-num">II</span>
+        <p class="q">¿Qué cambia la realidad?</p>
+        <h3>Transformación</h3>
+        <p class="d">Su unidad es el Acontecimiento — la transformación que modifica el modelo: Contratar, Vender, Registrar.</p>
+      </div>
+      <div class="u-card">
+        <span class="u-num">III</span>
+        <p class="q">¿Qué preserva el orden?</p>
+        <h3>Gobernanza</h3>
+        <p class="d">Su unidad es la Tutelación — la protección y preservación de una relación entre existencias.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="section-label">Lo Genuinamente Nuevo</div>
+    <h2 class="section-title">Tres mecanismos sin precedente directo en el mercado actual.</h2>
+    <div class="p-list">
+      <div class="p-row">
+        <div class="p-idx">01</div>
+        <div>
+          <h3>Propósito como invariante ejecutable</h3>
+          <p>El propósito declarado por el creador no se documenta y se archiva — se convierte en una restricción que el sistema verifica en cada decisión de modelado, pudiendo rechazarla si la contradice.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">02</div>
+        <div>
+          <h3>Regresión ontológica negociada</h3>
+          <p>El sistema nunca decide solo dónde detener la profundidad de un concepto. Propone, ejemplifica, y deja que el creador confirme el límite, nivel por nivel.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">03</div>
+        <div>
+          <h3>Reclasificación en cascada, historia intocable</h3>
+          <p>Cuando la realidad del creador cambia, la estructura se reconfigura automáticamente — pero los datos ya capturados permanecen intactos como registro histórico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="status">
+    <div class="status-box">
+      <span class="k">Estado de validación</span>
+      <p>Esta teoría está <strong>comprobada en papel</strong>, mediante un ejercicio dialéctico riguroso de ocho sesiones y un caso de aplicación real resuelto por completo mediante simulación estructurada. Queda pendiente su comprobación mediante <strong>implementación y uso real</strong> — eso es, con honestidad, el siguiente paso.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <p class="f-title">Angelusarity</p>
+      <p class="f-sub">Descubrimiento Ontológico Conversacional para la Creación de Aplicaciones</p>
+    </div>
+    <div class="f-meta">
+      © 2026 Angel Hernández Rivera. Todos los derechos reservados.<br>
+      <a href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Descargar Whitepaper (PDF)</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
