@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angelusarity — Descubrimiento Ontológico Conversacional</title>
-<meta name="description" content="Angelusarity: un mecanismo conversacional para descubrir la estructura ontológica que una aplicación necesita, sin exigir conocimientos de modelado de datos.">
+<title>Angelusarity — Conversational Ontology Discovery</title>
+<meta name="description" content="Angelusarity: a conversational mechanism for discovering the ontological structure an application needs, without requiring data modeling knowledge.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -36,23 +36,33 @@
   a{color:inherit;}
   .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
 
-  /* NAV */
   nav.top{
     display:flex; align-items:center; justify-content:space-between;
     padding:28px 32px; max-width:1040px; margin:0 auto;
   }
+  .navright{display:flex; align-items:center; gap:20px;}
+  .lang{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.1em;
+    color:var(--parchment-dim); text-decoration:none;
+  }
+  .lang:hover{color:var(--gold-soft);}
   .brand{
     font-family:var(--sans); letter-spacing:0.22em; font-size:13px;
     text-transform:uppercase; color:var(--parchment-dim);
   }
   .brand b{color:var(--gold-soft); font-weight:500;}
+  nav.top .lang{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.1em;
+    color:var(--parchment-dim); text-decoration:none; margin-right:20px;
+  }
+  nav.top .lang:hover{color:var(--gold-soft);}
   nav.top a.cta{
     font-family:var(--sans); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
     color:var(--ink); background:var(--gold-soft);
     padding:10px 18px; border-radius:2px; text-decoration:none;
   }
+  .navright{display:flex; align-items:center;}
 
-  /* HERO */
   header.hero{ padding:80px 0 60px; }
   .eyebrow{
     font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
@@ -84,7 +94,6 @@
   }
   .btn-secondary:hover{color:var(--gold-soft); border-color:var(--gold-soft);}
 
-  /* THESIS QUOTE */
   section.thesis{
     border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     padding:56px 0; margin:40px 0;
@@ -97,7 +106,6 @@
   .thesis blockquote::before{content:"“"; color:var(--gold-soft);}
   .thesis blockquote::after{content:"”"; color:var(--gold-soft);}
 
-  /* THREE UNIVERSES — signature element */
   section.universes{ padding:70px 0 40px; }
   .section-label{
     font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
@@ -127,7 +135,6 @@
   }
   .u-card p.d{ font-size:15.5px; color:var(--parchment-dim); margin:0; }
 
-  /* PILLARS */
   section.pillars{ padding:70px 0; }
   .p-list{ display:flex; flex-direction:column; }
   .p-row{
@@ -139,7 +146,6 @@
   .p-row h3{ font-family:var(--serif); font-weight:500; font-size:21px; margin:0 0 8px; color:var(--parchment); }
   .p-row p{ font-size:15.5px; color:var(--parchment-dim); margin:0; max-width:600px; }
 
-  /* STATUS BANNER */
   section.status{
     padding:44px 0; margin:20px 0 70px;
   }
@@ -154,7 +160,6 @@
   .status-box p{ margin:0; color:var(--parchment-dim); font-size:15.5px; }
   .status-box strong{ color:var(--parchment); font-weight:600; }
 
-  /* FOOTER / CTA */
   footer{
     border-top:1px solid var(--line); padding:56px 0 40px;
   }
@@ -186,73 +191,76 @@
 
 <nav class="top">
   <div class="brand">ANGELUSA<b>RI</b>TY</div>
-  <a class="cta" href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Leer el Whitepaper</a>
+  <div class="navright">
+    <a class="lang" href="es/">Español</a>
+    <a class="cta" href="assets/Angelusarity_Whitepaper_EN.pdf" target="_blank" rel="noopener">Read the Whitepaper</a>
+  </div>
 </nav>
 
 <div class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">Whitepaper Técnico · Versión 1.0</div>
-    <h1>La realidad no se<br><em>programa</em>. Se descubre.</h1>
-    <p class="lede">Angelusarity es un mecanismo conversacional que descubre, junto con quien construye una aplicación, la estructura que esa realidad necesita — sin exigirle saber modelar datos, y sin dejar que contradiga su propio propósito.</p>
+    <div class="eyebrow">Technical Whitepaper · Version 1.0</div>
+    <h1>Reality isn't<br><em>programmed</em>. It's discovered.</h1>
+    <p class="lede">Angelusarity is a conversational mechanism that discovers, together with whoever is building an application, the structure that reality needs — without requiring them to know how to model data, and without letting them contradict their own stated purpose.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Descargar el Whitepaper (PDF)</a>
-      <a class="btn-secondary" href="#universos">Ver la estructura ↓</a>
+      <a class="btn-primary" href="assets/Angelusarity_Whitepaper_EN.pdf" target="_blank" rel="noopener">Download the Whitepaper (PDF)</a>
+      <a class="btn-secondary" href="#universes">See the structure ↓</a>
     </div>
   </header>
 
   <section class="thesis">
-    <blockquote>Angelusarity no genera aplicaciones a partir de una descripción. Gobierna la coherencia de una realidad mientras esa realidad se descubre — y no permite que el creador construya algo que contradiga lo que él mismo dijo que quería.</blockquote>
+    <blockquote>Angelusarity does not generate applications from a description. It governs the coherence of a reality while that reality is being discovered — and it never lets the creator build something that contradicts what they themselves said they wanted.</blockquote>
   </section>
 
-  <section class="universes" id="universos">
-    <div class="section-label">Ontología Fundamental</div>
-    <h2 class="section-title">Toda realidad se organiza en tres universos, cada uno respondiendo una pregunta distinta.</h2>
+  <section class="universes" id="universes">
+    <div class="section-label">Foundational Ontology</div>
+    <h2 class="section-title">Every reality is organized into three universes, each answering a different question.</h2>
     <div class="u-grid">
       <div class="u-card">
         <span class="u-num">I</span>
-        <p class="q">¿Qué existe?</p>
-        <h3>Existencial</h3>
-        <p class="d">Su unidad es la Singularidad — una existencia única e identificable: una Persona, una Empresa, un Producto.</p>
+        <p class="q">What exists?</p>
+        <h3>Existential</h3>
+        <p class="d">Its unit is the Singularity — a unique, identifiable existence: a Person, a Company, a Product.</p>
       </div>
       <div class="u-card">
         <span class="u-num">II</span>
-        <p class="q">¿Qué cambia la realidad?</p>
-        <h3>Transformación</h3>
-        <p class="d">Su unidad es el Acontecimiento — la transformación que modifica el modelo: Contratar, Vender, Registrar.</p>
+        <p class="q">What changes reality?</p>
+        <h3>Transformation</h3>
+        <p class="d">Its unit is the Event — the transformation that modifies the model: Hire, Sell, Register.</p>
       </div>
       <div class="u-card">
         <span class="u-num">III</span>
-        <p class="q">¿Qué preserva el orden?</p>
-        <h3>Gobernanza</h3>
-        <p class="d">Su unidad es la Tutelación — la protección y preservación de una relación entre existencias.</p>
+        <p class="q">What preserves order?</p>
+        <h3>Governance</h3>
+        <p class="d">Its unit is the Tutelage — the protection and preservation of a relationship between existences.</p>
       </div>
     </div>
   </section>
 
   <section class="pillars">
-    <div class="section-label">Lo Genuinamente Nuevo</div>
-    <h2 class="section-title">Tres mecanismos sin precedente directo en el mercado actual.</h2>
+    <div class="section-label">What's Genuinely New</div>
+    <h2 class="section-title">Three mechanisms with no direct precedent in today's market.</h2>
     <div class="p-list">
       <div class="p-row">
         <div class="p-idx">01</div>
         <div>
-          <h3>Propósito como invariante ejecutable</h3>
-          <p>El propósito declarado por el creador no se documenta y se archiva — se convierte en una restricción que el sistema verifica en cada decisión de modelado, pudiendo rechazarla si la contradice.</p>
+          <h3>Purpose as an executable invariant</h3>
+          <p>The purpose declared by the creator isn't documented and archived — it becomes a constraint the system verifies at every modeling decision, and can reject if it contradicts it.</p>
         </div>
       </div>
       <div class="p-row">
         <div class="p-idx">02</div>
         <div>
-          <h3>Regresión ontológica negociada</h3>
-          <p>El sistema nunca decide solo dónde detener la profundidad de un concepto. Propone, ejemplifica, y deja que el creador confirme el límite, nivel por nivel.</p>
+          <h3>Negotiated ontological regression</h3>
+          <p>The system never decides alone how deep to take a concept. It proposes, exemplifies, and lets the creator confirm the limit, level by level.</p>
         </div>
       </div>
       <div class="p-row">
         <div class="p-idx">03</div>
         <div>
-          <h3>Reclasificación en cascada, historia intocable</h3>
-          <p>Cuando la realidad del creador cambia, la estructura se reconfigura automáticamente — pero los datos ya capturados permanecen intactos como registro histórico.</p>
+          <h3>Cascading reclassification, untouchable history</h3>
+          <p>When the creator's reality changes, the structure reconfigures automatically — but data already captured remains intact as historical record.</p>
         </div>
       </div>
     </div>
@@ -260,8 +268,8 @@
 
   <section class="status">
     <div class="status-box">
-      <span class="k">Estado de validación</span>
-      <p>Esta teoría está <strong>comprobada en papel</strong>, mediante un ejercicio dialéctico riguroso de ocho sesiones y un caso de aplicación real resuelto por completo mediante simulación estructurada. Queda pendiente su comprobación mediante <strong>implementación y uso real</strong> — eso es, con honestidad, el siguiente paso.</p>
+      <span class="k">Validation status</span>
+      <p>This theory is <strong>proven on paper</strong>, through a rigorous eight-session dialectical exercise and one real application case fully resolved through structured simulation. Its validation through <strong>real implementation and use</strong> remains pending — that is, honestly, the next step.</p>
     </div>
   </section>
 
@@ -271,11 +279,11 @@
   <div class="wrap foot-grid">
     <div>
       <p class="f-title">Angelusarity</p>
-      <p class="f-sub">Descubrimiento Ontológico Conversacional para la Creación de Aplicaciones</p>
+      <p class="f-sub">Conversational Ontology Discovery for Application Creation</p>
     </div>
     <div class="f-meta">
-      © 2026 Angel Hernández Rivera. Todos los derechos reservados.<br>
-      <a href="assets/Angelusarity_Whitepaper.pdf" target="_blank" rel="noopener">Descargar Whitepaper (PDF)</a>
+      © 2026 Angel Hernández Rivera. All rights reserved.<br>
+      <a href="assets/Angelusarity_Whitepaper_EN.pdf" target="_blank" rel="noopener">Download Whitepaper (PDF)</a>
     </div>
   </div>
 </footer>
