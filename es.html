@@ -145,6 +145,21 @@
   .p-row h3{ font-family:var(--serif); font-weight:500; font-size:21px; margin:0 0 8px; color:var(--parchment); }
   .p-row p{ font-size:15.5px; color:var(--parchment-dim); margin:0; max-width:600px; }
 
+  section.dialogue{ padding:60px 0; }
+  .dialogue-box{
+    border:1px solid var(--line); background: rgba(255,255,255,0.015);
+    padding:40px 42px;
+  }
+  .d-turn{ margin-bottom:22px; }
+  .d-turn:last-child{ margin-bottom:0; }
+  .d-speaker{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:6px; display:block;
+  }
+  .d-line{ font-size:16px; color:var(--parchment); margin:0; line-height:1.65; }
+  .d-fade{ color:var(--parchment-dim); font-style:italic; font-size:14.5px; margin-top:24px; }
+  .dialogue-cta{ margin-top:32px; display:flex; gap:18px; flex-wrap:wrap; }
+
   /* STATUS BANNER */
   section.status{
     padding:44px 0; margin:20px 0 70px;
@@ -264,6 +279,37 @@
           <p>Cuando la realidad del creador cambia, la estructura se reconfigura automáticamente — pero los datos ya capturados permanecen intactos como registro histórico.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="dialogue">
+    <div class="section-label">Un Caso Dialéctico</div>
+    <h2 class="section-title">El Constructor y Angelusarity — cómo funciona la gobernanza en la práctica.</h2>
+    <div class="dialogue-box">
+      <div class="d-turn">
+        <span class="d-speaker">Constructor</span>
+        <p class="d-line">Angelusarity, ayer diseñamos el molde para postes redondos y macizos. Hoy el mercado cambió por completo — el cliente los quiere cónicos, con un canal hueco para el cableado eléctrico. ¿Cómo absorbes tú un golpe así sin agrietarte?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Angelusarity</span>
+        <p class="d-line">Antes de preocuparnos por la forma, dime: ¿sigue siendo, en el fondo, la misma razón por la que lo construyes — un elemento que soporta carga y se desmolda sin romperse?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Constructor</span>
+        <p class="d-line">Sí. Eso nunca cambió.</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Angelusarity</span>
+        <p class="d-line">Entonces el Poste sigue siendo el mismo Poste — lo que cambia es cómo se ve, no qué es. Ahora, ponte en la punta conmigo: 15 cm de diámetro total, menos 5 del ducto. ¿Cuánto le queda de pared?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Constructor</span>
+        <p class="d-line">...5 centímetros. Eso es la mitad de lo que yo mismo pedí.</p>
+      </div>
+      <p class="d-fade">El diálogo continúa — probando la regla, resolviendo la contradicción, y comparando el mecanismo frente a una validación tradicional.</p>
+    </div>
+    <div class="dialogue-cta">
+      <a class="btn-primary" href="assets/Angelusarity_Dialogo_Poste_Conico_ES.pdf" target="_blank" rel="noopener">Leer el Diálogo Completo (PDF)</a>
     </div>
   </section>
 

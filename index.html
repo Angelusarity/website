@@ -146,6 +146,21 @@
   .p-row h3{ font-family:var(--serif); font-weight:500; font-size:21px; margin:0 0 8px; color:var(--parchment); }
   .p-row p{ font-size:15.5px; color:var(--parchment-dim); margin:0; max-width:600px; }
 
+  section.dialogue{ padding:60px 0; }
+  .dialogue-box{
+    border:1px solid var(--line); background: rgba(255,255,255,0.015);
+    padding:40px 42px;
+  }
+  .d-turn{ margin-bottom:22px; }
+  .d-turn:last-child{ margin-bottom:0; }
+  .d-speaker{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:6px; display:block;
+  }
+  .d-line{ font-size:16px; color:var(--parchment); margin:0; line-height:1.65; }
+  .d-fade{ color:var(--parchment-dim); font-style:italic; font-size:14.5px; margin-top:24px; }
+  .dialogue-cta{ margin-top:32px; display:flex; gap:18px; flex-wrap:wrap; }
+
   section.status{
     padding:44px 0; margin:20px 0 70px;
   }
@@ -192,7 +207,7 @@
 <nav class="top">
   <div class="brand">ANGELUSA<b>RI</b>TY</div>
   <div class="navright">
-    <a class="lang" href="es.html">Español</a>
+    <a class="lang" href="es">Español</a>
     <a class="cta" href="assets/Angelusarity_Whitepaper_EN.pdf" target="_blank" rel="noopener">Read the Whitepaper</a>
   </div>
 </nav>
@@ -263,6 +278,37 @@
           <p>When the creator's reality changes, the structure reconfigures automatically — but data already captured remains intact as historical record.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="dialogue">
+    <div class="section-label">A Dialectical Case</div>
+    <h2 class="section-title">The Builder and Angelusarity — how governance actually plays out.</h2>
+    <div class="dialogue-box">
+      <div class="d-turn">
+        <span class="d-speaker">Builder</span>
+        <p class="d-line">Angelusarity, yesterday we designed the mold for round, solid concrete posts. Today the market changed completely — the client now wants them conical, with a hollow channel for electrical cabling. How do you absorb a hit like this without cracking?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Angelusarity</span>
+        <p class="d-line">Before we worry about the shape, tell me: is it still, at its core, the same reason you're building it — an element meant to bear load and release cleanly from the mold?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Builder</span>
+        <p class="d-line">Yes. That never changed.</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Angelusarity</span>
+        <p class="d-line">Then the Post is still the same Post — what changes is how it looks, not what it is. Now, put yourself at the tip with me: 15 cm total diameter, minus 5 for the duct. How much wall is left?</p>
+      </div>
+      <div class="d-turn">
+        <span class="d-speaker">Builder</span>
+        <p class="d-line">...5 centimeters. That's half of what I asked for myself.</p>
+      </div>
+      <p class="d-fade">The dialogue continues — testing the rule, resolving the contradiction, and comparing the mechanism against a traditional validation approach.</p>
+    </div>
+    <div class="dialogue-cta">
+      <a class="btn-primary" href="assets/Angelusarity_Dialogue_Conical_Post_EN.pdf" target="_blank" rel="noopener">Read the Full Dialogue (PDF)</a>
     </div>
   </section>
 
