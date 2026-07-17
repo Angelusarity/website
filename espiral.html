@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Espiral del Fundamento — Angelusarity</title>
+<meta name="description" content="Ensayo filosófico de Angelusarity: hacia una arquitectura constitucional del conocimiento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12161f;
+    --ink-2:#1b202c;
+    --gold:#a9793a;
+    --gold-soft:#c9a36a;
+    --parchment:#f2ead9;
+    --parchment-dim:#cabf9f;
+    --line: rgba(201,163,106,0.28);
+    --serif: 'Cormorant Garamond', 'EB Garamond', serif;
+    --serif-body: 'EB Garamond', serif;
+    --sans: 'Jost', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(169,121,58,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(169,121,58,0.06), transparent 55%),
+      var(--ink);
+    color: var(--parchment);
+    font-family: var(--serif-body);
+    line-height: 1.6;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  nav.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 32px; max-width:1040px; margin:0 auto;
+  }
+  .navright{display:flex; align-items:center; gap:20px;}
+  .lang{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.1em;
+    color:var(--parchment-dim); text-decoration:none;
+  }
+  .lang:hover{color:var(--gold-soft);}
+  .brand{
+    font-family:var(--sans); letter-spacing:0.22em; font-size:13px;
+    text-transform:uppercase; color:var(--parchment-dim); text-decoration:none;
+  }
+  .brand b{color:var(--gold-soft); font-weight:500;}
+  nav.top a.cta{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold-soft);
+    padding:10px 18px; border-radius:2px; text-decoration:none;
+  }
+
+  /* HERO */
+  header.hero{ padding:80px 0 60px; }
+  .eyebrow{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:22px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold-soft);display:inline-block;}
+  h1{
+    font-family:var(--serif); font-weight:500; font-style:italic;
+    font-size:clamp(38px,6.6vw,68px); line-height:1.06; margin:0 0 26px; color:var(--parchment);
+    letter-spacing:-0.01em;
+  }
+  h1 em{color:var(--gold-soft); font-style:normal;}
+  .lede{
+    font-size:clamp(17px,2vw,20px); color:var(--parchment-dim); max-width:640px;
+    margin:0 0 40px; font-weight:400;
+  }
+  .hero-actions{display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+  .btn-secondary{
+    font-family:var(--sans); font-size:13px; letter-spacing:0.08em;
+    color:var(--parchment-dim); text-decoration:none; border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .btn-secondary:hover{color:var(--gold-soft); border-color:var(--gold-soft);}
+
+  /* THESIS / PULL QUOTE */
+  section.thesis{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:52px 0; margin:36px 0;
+  }
+  .thesis blockquote{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(21px,3vw,29px); line-height:1.4; color:var(--parchment);
+    margin:0; max-width:780px;
+  }
+  .thesis blockquote::before{content:"\201C"; color:var(--gold-soft);}
+  .thesis blockquote::after{content:"\201D"; color:var(--gold-soft);}
+  .thesis cite{
+    display:block; margin-top:16px; font-family:var(--sans); font-style:normal;
+    font-size:12px; letter-spacing:.1em; color:var(--parchment-dim);
+  }
+
+  /* ESSAY SECTIONS */
+  section.essay-part{ padding:56px 0 8px; }
+  .section-label{
+    font-family:var(--sans); font-size:12px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:14px;
+  }
+  .section-title{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:clamp(24px,3.2vw,32px); color:var(--parchment); margin:0 0 30px; max-width:680px;
+  }
+  .essay-part p{
+    font-size:16.5px; color:var(--parchment-dim); max-width:700px; margin:0 0 20px;
+  }
+  .essay-part strong{ color:var(--parchment); font-weight:600; }
+  .essay-part em{ color:var(--gold-soft); font-style:italic; }
+
+  /* NUMBERED OBJECTIONS (reuses homepage's pillar pattern) */
+  .p-list{ display:flex; flex-direction:column; margin-top:12px; }
+  .p-row{
+    display:grid; grid-template-columns:64px 1fr; gap:24px;
+    padding:30px 0; border-top:1px solid var(--line);
+  }
+  .p-row:last-child{border-bottom:1px solid var(--line);}
+  .p-idx{ font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:30px; }
+  .p-row h3{ font-family:var(--serif); font-weight:500; font-style:italic; font-size:19px; margin:0 0 8px; color:var(--parchment); }
+  .p-row p{ font-size:15.5px; color:var(--parchment-dim); margin:0; max-width:640px; }
+
+  /* STATUS-LIKE CLOSING BOX */
+  section.close-box{ padding:40px 0 70px; }
+  .status-box{
+    border:1px solid var(--line); padding:32px 36px; border-left:3px solid var(--gold-soft);
+    background: rgba(169,121,58,0.05);
+  }
+  .status-box .k{
+    font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold-soft); margin-bottom:10px; display:block;
+  }
+  .status-box p{ margin:0; color:var(--parchment-dim); font-size:15.5px; }
+  .status-box strong{ color:var(--parchment); font-weight:600; }
+
+  /* FOOTER */
+  footer{ border-top:1px solid var(--line); padding:56px 0 40px; }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  footer .f-title{ font-family:var(--serif); font-style:italic; font-size:26px; color:var(--parchment); margin:0 0 6px; }
+  footer .f-sub{ color:var(--parchment-dim); font-size:14.5px; margin:0; }
+  .f-meta{
+    font-family:var(--sans); font-size:12px; color:var(--parchment-dim); text-align:right;
+    letter-spacing:0.03em; opacity:0.7;
+  }
+  .f-meta a{ text-decoration:none; color:var(--gold-soft); }
+
+  @media (max-width:760px){
+    .p-row{ grid-template-columns:44px 1fr; }
+    .foot-grid{ flex-direction:column; align-items:flex-start; }
+    .f-meta{ text-align:left; }
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="es.html">ANGELUSA<b>RI</b>TY</a>
+  <div class="navright">
+    <a class="lang" href="spiral.html">English</a>
+    <a class="cta" href="es.html">&larr; Inicio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Ensayo Filosófico</div>
+    <h1>La Espiral<br>del <em>Fundamento</em></h1>
+    <p class="lede">Hacia una arquitectura constitucional del conocimiento — y su primera confirmación dentro de Angelusarity.</p>
+    <div class="hero-actions">
+      <a class="btn-secondary" href="#pregunta">Empezar a leer &darr;</a>
+    </div>
+  </header>
+
+  <section class="essay-part" id="pregunta">
+    <div class="section-label">I. La pregunta original</div>
+    <h2 class="section-title">¿Existe una estructura mínima de dependencias sin la cual el conocimiento no puede constituirse?</h2>
+    <p>Toda tradición filosófica ha preguntado <em>qué es</em> un concepto: qué es la sustancia, qué es la conciencia, qué es el signo. Angelusarity nace de una pregunta distinta, más cercana a una arquitectura que a una definición.</p>
+    <p>No se trata de proponer conceptos nuevos. Se trata de afirmar que los conceptos fundamentales &mdash;Existencia, Singularidad, Propósito, Interpretación&mdash; ocupan una posición necesaria dentro de una arquitectura de dependencias, y que esa posición es tan determinante para su significado como su propia definición.</p>
+  </section>
+
+  <section class="essay-part">
+    <div class="section-label">II. El grafo constitucional</div>
+    <h2 class="section-title">Dos estructuras: lo que ya existe, y el ciclo que lo transforma.</h2>
+    <p><strong>La Estructura de la Singularidad</strong> &mdash; lo que ya existe, condición tras condición: Existencia hace posible Singularidad; Singularidad se abre en Identidad, Naturaleza y Propiedades Constitutivas; de ahí nace Rol, luego Observador, luego Perspectiva, luego Observación, y converge en Conocimiento, Propósito, Materialización, Representación e Interpretación.</p>
+    <p><strong>La Estructura de la Creación</strong> &mdash; el ciclo evolutivo: de Interpretación nace Acción, que se abre en Estado, Transformación e Interacción; todo converge en Emergencia, que produce Nueva Singularidad y Nuevo Ciclo &mdash; que regresa a Existencia.</p>
+    <p>Ninguno de estos conceptos es nuevo. La prioridad ontológica entre categorías es de Aristóteles. La dependencia constitutiva entre partes &mdash;lo que él llamó <em>Fundierung</em>&mdash; es de Husserl. Que el significado dependa de la posición dentro de un sistema es el argumento central de la <em>Ciencia de la Lógica</em> de Hegel. Los grafos dirigidos de dependencia entre hechos se publican hoy bajo el nombre de <em>grounding</em>, en la obra de Kit Fine y Jonathan Schaffer.</p>
+    <p>Lo que ninguno de ellos construyó fue el mecanismo por el cual alguien sin formación filosófica pudiera, dialogando, descubrir dónde encaja su caso particular dentro de esta arquitectura &mdash; y ver nacer, al final, algo funcionando en el mundo.</p>
+  </section>
+
+  <section class="thesis">
+    <blockquote>Bernoulli pidió que grabaran en su lápida una sola línea: <em>eadem mutata resurgo</em> &mdash; aunque transformada, resurjo la misma.</blockquote>
+  </section>
+
+  <section class="essay-part">
+    <div class="section-label">III. La espiral, no el círculo</div>
+    <h2 class="section-title">Nada nace en cada vuelta. Todo se enfoca.</h2>
+    <p>El Nuevo Ciclo no regresa al mismo punto. Regresa a un punto ulterior &mdash; la misma forma, nunca la misma posición. Es la <em>spira mirabilis</em> que Jacob Bernoulli encontró en la concha del nautilus: autosimilar, transformada pero reconociblemente la misma en cada vuelta.</p>
+    <p>Angelusarity no describe un universo que crece &mdash; describe una cámara cuyo encuadre, la Existencia, permanece siempre completo, y cuya resolución aumenta con cada vuelta sin jamás alcanzar el detalle total. Cada ciclo no crea una realidad nueva: enfoca con más nitidez la misma realidad que siempre estuvo ahí.</p>
+    <p>Esta imagen resuelve, sin esfuerzo adicional, el problema más antiguo de la metafísica occidental: si nada nace, no hace falta una Causa Primera para lo que nunca fue creado. El problema que obligó a Aristóteles a postular un Motor Inmóvil, y a Tomás de Aquino su prueba cosmológica, deja de aplicar &mdash; no porque se resuelva, sino porque la pregunta que lo generaba nunca correspondía a esta arquitectura.</p>
+  </section>
+
+  <section class="essay-part">
+    <div class="section-label">IV. El límite honesto</div>
+    <h2 class="section-title">Ninguna teoría se prueba verdadera. Solo se prueba todavía no falsada.</h2>
+    <p>Ninguna cámara, sin importar cuánto mejore, alcanza resolución infinita. Existe siempre algo más allá de lo que la lente más perfecta puede capturar &mdash; el noúmeno de Kant, la Singularidad Fundacional que ninguna vuelta de la espiral termina de revelar.</p>
+    <p>Y no puede afirmarse que el encuadre mismo abarque toda la realidad. No hay manera de que la cámara fotografíe su propio encuadre para confirmar que no dejó nada fuera. Es el límite que Gödel encontró en la matemática: ningún sistema puede probar su propia completitud con sus propias herramientas.</p>
+    <p>La respuesta honesta no es afirmar totalidad. Es el criterio de Karl Popper. Angelusarity no jura ver toda la realidad. Se compromete a seguir buscando el caso que la desmienta, en vez de darlo por imposible de antemano.</p>
+  </section>
+
+  <section class="essay-part">
+    <div class="section-label">V. La prueba bajo fuego</div>
+    <h2 class="section-title">Seis objeciones clásicas, dirigidas contra la cadena completa.</h2>
+    <p>Una arquitectura que no se somete a su propio ataque no merece confianza.</p>
+    <div class="p-list">
+      <div class="p-row">
+        <div class="p-idx">01</div>
+        <div>
+          <h3>El vacío cuántico y el <em>anatta</em> budista</h3>
+          <p>Contra Existencia &rarr; Singularidad. No la contradicen: existir dentro del marco sin constituir todavía una Singularidad es exactamente lo que una dependencia necesaria &mdash;no equivalente&mdash; permite.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">02</div>
+        <div>
+          <h3>El barco de Teseo</h3>
+          <p>Contra Singularidad &rarr; Propiedades. Ataca una dependencia que la arquitectura nunca afirmó: Identidad, Naturaleza y Propiedades Constitutivas son ramas simultáneas, no una cadena donde una depende de la otra.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">03</div>
+        <div>
+          <h3>El instinto del recién nacido</h3>
+          <p>Contra Conocimiento &rarr; Propósito. Revela dos capas &mdash;un Propósito axiomático, dado por la Naturaleza, y un Propósito descubierto&mdash; en vez de romper la cadena.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">04</div>
+        <div>
+          <h3>La <em>akrasia</em> aristotélica</h3>
+          <p>Interpretar correctamente y actuar en contra no contradice Interpretación &rarr; Acción: lo confirma. La frontera entre ambas es real y no garantizada &mdash; eso es lo que hace posible saber y aun así no actuar.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">05</div>
+        <div>
+          <h3>El regreso al infinito y la Primera Causa</h3>
+          <p>Quedan resueltos por la espiral misma: si nada nace, no hace falta causa primera para lo que nunca fue creado.</p>
+        </div>
+      </div>
+      <div class="p-row">
+        <div class="p-idx">06</div>
+        <div>
+          <h3>La evolución darwiniana</h3>
+          <p>La más disputada de las seis, resuelve por dos caminos independientes. El primero: un agente que declara qué busca antes de que la forma exista &mdash; una mula, cruce deliberado de caballo y burro, tiene propósito real aunque sea estéril. El segundo: la capacidad de variar, perteneciente a la Naturaleza de la especie de forma asimétrica entre sus individuos &mdash; la bacteria que sobrevive a un antibiótico y la que no comparten la misma Naturaleza; solo una expresó, por azar, el punto favorable del rango. Ninguna de las dos rutas exige éxito individual, persistencia ni consciencia. Donde ninguna está presente, no hay Propósito que reclamar &mdash; y esa ausencia no es una falla de la arquitectura: es su frontera correctamente trazada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="essay-part">
+    <div class="section-label">VI. El cierre</div>
+    <h2 class="section-title">Cuando dos caminos independientes llegan al mismo punto.</h2>
+    <p>Hay una prueba de coherencia más fuerte que cualquier argumento: que dos caminos, sin coordinarse, lleguen al mismo lugar.</p>
+    <p>Al defender esta arquitectura contra la evolución darwiniana, apareció un concepto &mdash;la condición sin la cual ningún propósito puede materializarse&mdash; que nunca se buscó deliberadamente. De forma completamente independiente, al construir la ontología técnica de Angelusarity, ese mismo concepto volvió a aparecer, semanas después, resolviendo una clasificación que llevaba tiempo sin cerrarse.</p>
+    <p>Ninguno de los dos hallazgos se propuso confirmar al otro. Se encontraron por caminos distintos, en momentos distintos, y llegaron al mismo lugar.</p>
+  </section>
+
+  <section class="thesis">
+    <blockquote>Esta arquitectura no necesita declarar su propia novedad para sostenerse. Se explica sola.</blockquote>
+  </section>
+
+  <section class="close-box">
+    <div class="status-box">
+      <span class="k">Sobre este ensayo</span>
+      <p>Este texto es la capa filosófica de Angelusarity &mdash; el marco técnico completo, con sus Leyes, Principios y el caso de validación de punta a punta, está desarrollado en el <strong>Whitepaper Técnico</strong>.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <p class="f-title">Angelusarity</p>
+      <p class="f-sub">La Espiral del Fundamento — Ensayo Filosófico</p>
+    </div>
+    <div class="f-meta">
+      © 2026 Angel Hernández Rivera. Todos los derechos reservados.<br>
+      <a href="es.html">Volver a Angelusarity</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
